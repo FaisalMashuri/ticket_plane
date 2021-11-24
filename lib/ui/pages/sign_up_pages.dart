@@ -67,7 +67,9 @@ class SignUpPages extends StatelessWidget {
             Section('Email', 'Your Email'),
             Section('Password', 'Your Password'),
             Section('Hobby', 'Your Hobby'),
-            CustomButton(title: "Get Started", onPressed: (){})
+            CustomButton(title: "Get Started", onPressed: (){
+              Navigator.pushNamed(context, "/bonus");
+            })
           ],
         ),
       );
