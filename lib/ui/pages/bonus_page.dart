@@ -24,6 +24,7 @@ class BonusPage extends StatelessWidget {
             ]
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -32,7 +33,7 @@ class BonusPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Name", style: whiteTextColor.copyWith(
-                        fontWeight: light
+                        fontWeight: semiBold
                       ),),
                       Text("Faisal Mashuri", style: whiteTextColor.copyWith(
                         fontWeight: medium,
@@ -53,11 +54,53 @@ class BonusPage extends StatelessWidget {
                 SizedBox(width: 6,),
                 Text("Pay", style: whiteTextColor.copyWith(
                   fontWeight: medium,
-                  fontSize: 20
+                  fontSize: 16
                 ),)
               ],
+            ),
+            SizedBox(height: 41,),
+            Text(
+              "Balance",
+              style: whiteTextColor.copyWith(
+                fontSize: 16,
+                fontWeight: semiBold
+              ),
+            ),
+            Text(
+              "IDR 200.000.000",
+              style: whiteTextColor.copyWith(
+                fontSize: 26,
+                fontWeight: medium
+              ),
             )
           ],
+        )
+      );
+    }
+
+    Widget title() {
+      return Container(
+        margin: EdgeInsets.only(top: 60),
+        child: Text(
+          "Big Bonus 🎉",
+          style: blackTextStyle.copyWith(
+            fontSize: 32,
+            fontWeight: semiBold
+          ),
+        ),
+      );
+    }
+
+    Widget subtitle() {
+      return Container(
+        margin: EdgeInsets.only(top: 20),
+        child: Text(
+          "We give you earlu credit so that\nyou can buy a flight ticket",
+          style: greyTextColor.copyWith(
+            fontSize: 16,
+            fontWeight: medium,
+          ),
+          textAlign: TextAlign.center,
         )
       );
     }
@@ -67,7 +110,12 @@ class BonusPage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [BonusCard()],
+          children: [
+            BonusCard(),
+            title(),
+            subtitle(),
+            CustomButton(title: "Start Flight Now",width: 300,margin: EdgeInsets.only(top: 50), onPressed: () {})
+          ],
         ),
       ),
     );
