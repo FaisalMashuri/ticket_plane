@@ -1,3 +1,4 @@
+import 'package:airplane/ui/widgets/custom_bottom_navigation_item.dart';
 import 'package:flutter/material.dart';
 import '../../shared/theme.dart';
 import 'package:airplane/ui/widgets/custom_button_widget.dart';
@@ -18,98 +19,10 @@ class MainPage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(),
-                Container(
-                  height: 24,
-                  width: 24,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/icon_home.png")
-                    )
-                  ),
-                ),
-                Container(
-                  width: 30,
-                  height: 2,
-                  decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(18)
-                  ),
-                )
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(),
-                Container(
-                  height: 24,
-                  width: 24,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/icon_booking.png")
-                    )
-                  ),
-                ),
-                Container(
-                  width: 30,
-                  height: 2,
-                  decoration: BoxDecoration(
-                    color: kTransparent,
-                    borderRadius: BorderRadius.circular(18)
-                  ),
-                )
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(),
-                Container(
-                  height: 24,
-                  width: 24,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/icon_card.png")
-                    )
-                  ),
-                ),
-                Container(
-                  width: 30,
-                  height: 2,
-                  decoration: BoxDecoration(
-                    color: kTransparent,
-                    borderRadius: BorderRadius.circular(18)
-                  ),
-                )
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(),
-                Container(
-                  height: 24,
-                  width: 24,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("assets/icon_settings.png")
-                    )
-                  ),
-                ),
-                Container(
-                  width: 30,
-                  height: 2,
-                  decoration: BoxDecoration(
-                    color: kTransparent,
-                    borderRadius: BorderRadius.circular(18)
-                  ),
-                )
-              ],
-            )
+           CustomBottomNavigationItem(imageUrl: "assets/icon_home.png", isSelected: true,),
+           CustomBottomNavigationItem(imageUrl: "assets/icon_booking.png",),
+           CustomBottomNavigationItem(imageUrl: "assets/icon_card.png",),
+           CustomBottomNavigationItem(imageUrl: "assets/icon_settings.png",),
           ],
         ),
       ),
