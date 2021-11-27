@@ -114,7 +114,13 @@ class BonusPage extends StatelessWidget {
             BonusCard(),
             title(),
             subtitle(),
-            CustomButton(title: "Start Flight Now",width: 300,margin: EdgeInsets.only(top: 50), onPressed: () {})
+            CustomButton(
+              title: "Start Flight Now",
+              width: 300,margin: EdgeInsets.only(top: 50), 
+              onPressed: () {
+                Navigator.pushNamed(context, "/main");
+              }
+            )
           ],
         ),
       ),
