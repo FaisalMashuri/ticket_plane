@@ -1,3 +1,4 @@
+import 'package:airplane/ui/pages/home_page.dart';
 import 'package:airplane/ui/widgets/custom_bottom_navigation_item.dart';
 import 'package:flutter/material.dart';
 import '../../shared/theme.dart';
@@ -7,6 +8,10 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    Widget BuildContent() {
+      return HomePage();
+    }
 
     Widget customButtonNavigation() {
       return Align(
@@ -36,10 +41,7 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       body:Stack(
         children: [
-          Text(
-            "main page",
-
-          ),
+          BuildContent(),
           customButtonNavigation()
         ],
       )
