@@ -1,6 +1,6 @@
-import 'package:airplane/ui/widgets/custom_button_widget.dart';
+import 'package:airplane/shared/theme.dart';
+import 'package:airplane/ui/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import '../../shared/theme.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({ Key? key }) : super(key: key);
@@ -17,42 +17,41 @@ class GetStartedPage extends StatelessWidget {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(
-                  'assets/image_get_started.png',
-                ),
-              ),
+                  "assets/image_get_started.png",
+                )
+              )
             ),
           ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   "Fly Like a Bird",
-                  style: whiteTextColor.copyWith(
+                  style: whiteTextStyle.copyWith(
                     fontSize: 32,
-                    fontWeight: semiBold
+                    fontWeight: semiBold,
                   ),
                 ),
-                SizedBox(height:10),
+                SizedBox(height: 10,),
                 Text(
-                  "Explore new world with us and let\nyourself get an amazing experiences",
-                  style: whiteTextColor.copyWith(
+                  "Explore new world with us and let\n your self get an amazing experiences",
+                  style: whiteTextStyle.copyWith(
                     fontSize: 16,
                     fontWeight: light,
                   ),
                   textAlign: TextAlign.center,
                 ),
+                SizedBox(height: 50,),
                 CustomButton(
-                  title: 'Get Started',
+                  title: "Get Started",
                   width: 220,
-                  margin: EdgeInsets.only(
-                    top: 50,
-                    bottom: 80,
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/sign-up');
+                  onPressed: (){
+                    Navigator.pushNamed(context, "/sign-up");
                   },
-                ),
+                  margin: EdgeInsets.only(top: 50, bottom: 80),
+                )
               ],
             ),
           )

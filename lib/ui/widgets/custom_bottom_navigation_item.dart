@@ -1,36 +1,37 @@
-import 'package:airplane/shared/theme.dart';
 import 'package:flutter/material.dart';
+import '../../shared/theme.dart';
 
-class CustomBottomNavigationItem extends StatelessWidget {
+class CustomBottonNavigationItem extends StatelessWidget {
   final String imageUrl;
-  final bool isSelected;
-  const CustomBottomNavigationItem(
-    {
-      Key? key,
-      required this.imageUrl,
-      this.isSelected=false,
-    }
-    ) : super(key: key);
+  final bool isActive;
+  const CustomBottonNavigationItem({
+    Key? key, 
+    required this.imageUrl, 
+    this.isActive = false
+  }) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         SizedBox(),
         Container(
-          height: 24,
           width: 24,
+          height: 24,
           decoration: BoxDecoration(
               image:
                   DecorationImage(image: AssetImage(imageUrl))),
         ),
+        isActive ? 
         Container(
           width: 30,
           height: 2,
           decoration: BoxDecoration(
-              color: isSelected ? kPrimaryColor : kTransparent, borderRadius: BorderRadius.circular(18)),
-        )
+              color: kPrimaryColor,
+              borderRadius: BorderRadius.circular(defaultRadius)),
+        ): Container()
       ],
     );
   }
