@@ -1,4 +1,6 @@
 import 'package:airplane/shared/theme.dart';
+import 'package:airplane/ui/widgets/destination_card.dart';
+import 'package:airplane/ui/widgets/destination_tile.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -30,7 +32,6 @@ class HomePage extends StatelessWidget {
                     style:
                         greyTextStyle.copyWith(fontSize: 16, fontWeight: light),
                     overflow: TextOverflow.ellipsis,
-
                   )
                 ],
               ),
@@ -39,11 +40,9 @@ class HomePage extends StatelessWidget {
               width: 60,
               height: 60,
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage("assets/image_profile.png")
-                )
-              ),
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage("assets/image_profile.png"))),
             )
           ],
         ),
@@ -52,78 +51,104 @@ class HomePage extends StatelessWidget {
 
     Widget popularDestination() {
       return Container(
-        margin: EdgeInsets.only(top:30),
-        child: Row(
-          children: [
-            Container(
-              width: 200,
-              height: 323,
-              margin: EdgeInsets.only(
-                left: defaultMargin
+        margin: EdgeInsets.only(top: 30),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              DestinationCard(
+                title: "Lake Ciliwung",
+                city: "Tangerang",
+                imageUrl: "assets/image_destination1.png",
+                rating: 4.8,
               ),
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18),
-                color: kWhiteColor
+              DestinationCard(
+                title: "White House",
+                city: "Spain",
+                imageUrl: "assets/image_destination2.png",
+                rating: 4.7,
               ),
-              child: Column(
-                children: [
-                  Container(
-                    width: 180,
-                    height: 220,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(18),
-                      image: DecorationImage(
-                        image: AssetImage("assets/image_destination1.png")
-                      )
-                    ),
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: Container(
-                        width: 55,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          color: kWhiteColor,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(18)
-                          )
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(right: 2),
-                              width: 20,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/icon_star.png")
-                                )
-                              ),
-                            ),
-                            Text(
-                              "4.8",
-                              style: blackTextStyle.copyWith(
-                                fontWeight: medium
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
-                ],
+              DestinationCard(
+                title: "Lake Ciliwung",
+                city: "Tangerang",
+                imageUrl: "assets/image_destination3.png",
+                rating: 4.8,
               ),
-            )
-          ], 
+              DestinationCard(
+                title: "Lake Ciliwung",
+                city: "Singapore",
+                imageUrl: "assets/image_destination4.png",
+                rating: 4.8,
+              ),
+              DestinationCard(
+                title: "Lake Ciliwung",
+                city: "Jepang",
+                imageUrl: "assets/image_destination5.png",
+                rating: 4.8,
+              ),
+            ],
+          ),
         ),
       );
     }
+
+    Widget newDestination() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 30,
+          left: defaultMargin,
+          right: defaultMargin
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "New This Year",
+              style: blackTextStyle.copyWith(
+                fontSize: 18,
+                fontWeight: semiBold
+              ),
+            ),
+            DestinationTile(
+              title: "Danau Berantan",
+              city: "Singaraja",
+              imageUrl: "assets/image_destination6.png",
+              rating: 4.7,
+            ),
+            DestinationTile(
+              title: "Danau Berantan",
+              city: "Singaraja",
+              imageUrl: "assets/image_destination7.png",
+              rating: 4.7,
+            ),
+            DestinationTile(
+              title: "Danau Berantan",
+              city: "Singaraja",
+              imageUrl: "assets/image_destination8.png",
+              rating: 4.7,
+            ),
+            DestinationTile(
+              title: "Danau Berantan",
+              city: "Singaraja",
+              imageUrl: "assets/image_destination9.png",
+              rating: 4.7,
+            ),
+            DestinationTile(
+              title: "Danau Berantan",
+              city: "Singaraja",
+              imageUrl: "assets/image_destination10.png",
+              rating: 4.7,
+            ),
+          ],
+        ),
+      );
+    }
+
     return ListView(
       children: [
-        header(),
-        popularDestination()  
+        header(), 
+        popularDestination(),
+        newDestination()
       ],
     );
   }
