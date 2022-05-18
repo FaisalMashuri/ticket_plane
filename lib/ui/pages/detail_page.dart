@@ -48,11 +48,12 @@ class DetailPage extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(top: 30),
               width: 108,
-              height: 24,
+              // height: 34,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage("assets/icon_emblem.png"))),
             ),
+            // Note Title
             Container(
               margin: EdgeInsets.only(top: 256),
               child: Row(
@@ -94,6 +95,33 @@ class DetailPage extends StatelessWidget {
                       )
                     ],
                   ),
+                ],
+              ),
+            ),
+            // Note About
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(top: 30),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+              decoration: BoxDecoration(
+                  color: kWhiteColor, borderRadius: BorderRadius.circular(17)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "About",
+                    style: blackTextStyle.copyWith(
+                        fontWeight: extraBold, fontSize: 16),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Berada dijalur provinsi yang menghubungkan Denpasar singaraja serta letaknya yang dekat dengan kebun raya eka karya",
+                    style: blackTextStyle.copyWith(
+                        fontWeight: light, fontSize: 16),
+                    textAlign: TextAlign.justify,
+                  )
                 ],
               ),
             )
