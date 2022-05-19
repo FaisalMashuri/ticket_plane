@@ -1,3 +1,6 @@
+import 'package:airplane/ui/widgets/InterestItem.dart';
+import 'package:airplane/ui/widgets/PhotoItem.dart';
+import 'package:airplane/ui/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:airplane/shared/theme.dart';
 
@@ -7,16 +10,29 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget backgroundImage() {
-      return Container(
-        width: double.infinity,
-        height: 450,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(35),
-                bottomRight: Radius.circular(35)),
-            image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage("assets/image_destination1.png"))),
+      return Stack(
+        children: [
+          Container(
+            width: double.infinity,
+            height: 450,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(35),
+                    bottomRight: Radius.circular(35)),
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage("assets/image_destination1.png"))),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 50, left: 20),
+            child: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_ios),
+            ),
+          )
+        ],
       );
     }
 
@@ -46,7 +62,7 @@ class DetailPage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 30),
+              // margin: EdgeInsets.only(top: 10),
               width: 108,
               // height: 34,
               decoration: BoxDecoration(
@@ -101,7 +117,7 @@ class DetailPage extends StatelessWidget {
             // Note About
             Container(
               width: double.infinity,
-              margin: EdgeInsets.only(top: 30),
+              margin: EdgeInsets.only(top: 20),
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
               decoration: BoxDecoration(
                   color: kWhiteColor, borderRadius: BorderRadius.circular(17)),
@@ -114,13 +130,96 @@ class DetailPage extends StatelessWidget {
                         fontWeight: extraBold, fontSize: 16),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Text(
                     "Berada dijalur provinsi yang menghubungkan Denpasar singaraja serta letaknya yang dekat dengan kebun raya eka karya",
                     style: blackTextStyle.copyWith(
                         fontWeight: light, fontSize: 16),
                     textAlign: TextAlign.justify,
+                  ),
+
+                  // Note : Photos
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Text(
+                    "Photos",
+                    style:
+                        blackTextStyle.copyWith(fontSize: 16, fontWeight: bold),
+                  ),
+                  SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      PhotoItem(imageUrl: "assets/image_photo1.png"),
+                      // Spacer(),
+                      PhotoItem(imageUrl: "assets/image_photo2.png"),
+                      // Spacer(),
+                      PhotoItem(imageUrl: "assets/image_photo3.png")
+                    ],
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Text(
+                    "Interest",
+                    style: purpleTextStyle.copyWith(
+                        fontSize: 16, fontWeight: semiBold),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+
+                  Row(
+                    children: [
+                      InterestItem(title: "Kids Park"),
+                      InterestItem(title: "Kids Park"),
+                    ],
+                  ),
+
+                  SizedBox(
+                    height: 10,
+                  ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InterestItem(title: "Kids Park"),
+                      InterestItem(title: "Kids Park"),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(vertical: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "IDR 2.500.000",
+                        style: blackTextStyle.copyWith(
+                            fontSize: 18, fontWeight: medium),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        "per orang",
+                        style: greyTextStyle.copyWith(fontWeight: light),
+                      )
+                    ],
+                  ),
+                  CustomButton(
+                    title: "Book Now",
+                    onPressed: () {},
+                    width: 158,
+                    margin: EdgeInsets.only(left: 40),
                   )
                 ],
               ),
@@ -132,8 +231,10 @@ class DetailPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kBackgroundColor,
-      body: Stack(
-        children: [backgroundImage(), customShadow(), content()],
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [backgroundImage(), customShadow(), content()],
+        ),
       ),
     );
   }

@@ -95,19 +95,14 @@ class HomePage extends StatelessWidget {
     Widget newDestination() {
       return Container(
         margin: EdgeInsets.only(
-          top: 30,
-          left: defaultMargin,
-          right: defaultMargin
-        ),
+            top: 30, bottom: 70, left: defaultMargin, right: defaultMargin),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "New This Year",
-              style: blackTextStyle.copyWith(
-                fontSize: 18,
-                fontWeight: semiBold
-              ),
+              style:
+                  blackTextStyle.copyWith(fontSize: 18, fontWeight: semiBold),
             ),
             DestinationTile(
               title: "Danau Berantan",
@@ -145,11 +140,7 @@ class HomePage extends StatelessWidget {
     }
 
     return ListView(
-      children: [
-        header(), 
-        popularDestination(),
-        newDestination()
-      ],
+      children: [header(), popularDestination(), newDestination()],
     );
   }
 }

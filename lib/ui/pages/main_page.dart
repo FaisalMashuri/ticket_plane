@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 import '../../shared/theme.dart';
 
 class MainPage extends StatelessWidget {
-  const MainPage({ Key? key }) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     Widget BuildContent() {
       return HomePage();
     }
@@ -19,15 +18,18 @@ class MainPage extends StatelessWidget {
         child: Container(
           width: double.infinity,
           height: 60,
-          margin: EdgeInsets.only(bottom: 30, left: defaultMargin, right: defaultMargin),
+          margin: EdgeInsets.only(
+              bottom: 20, left: defaultMargin, right: defaultMargin),
           decoration: BoxDecoration(
-            color: kWhiteColor,
-            borderRadius: BorderRadius.circular(defaultRadius)
-          ),
+              color: kWhiteColor,
+              borderRadius: BorderRadius.circular(defaultRadius)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              CustomBottonNavigationItem(imageUrl: "assets/icon_home.png", isActive: true,),
+              CustomBottonNavigationItem(
+                imageUrl: "assets/icon_home.png",
+                isActive: true,
+              ),
               CustomBottonNavigationItem(imageUrl: "assets/icon_booking.png"),
               CustomBottonNavigationItem(imageUrl: "assets/icon_card.png"),
               CustomBottonNavigationItem(imageUrl: "assets/icon_settings.png"),
@@ -37,14 +39,9 @@ class MainPage extends StatelessWidget {
       );
     }
 
-
     return Scaffold(
-      body:Stack(
-        children: [
-          BuildContent(),
-          customButtonNavigation()
-        ],
-      )
-    );
+        body: Stack(
+      children: [BuildContent(), customButtonNavigation()],
+    ));
   }
 }
