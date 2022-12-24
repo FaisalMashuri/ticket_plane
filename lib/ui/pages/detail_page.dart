@@ -1,3 +1,4 @@
+import 'package:airplane/ui/pages/choose_seat_page.dart';
 import 'package:airplane/ui/widgets/InterestItem.dart';
 import 'package:airplane/ui/widgets/PhotoItem.dart';
 import 'package:airplane/ui/widgets/custom_button.dart';
@@ -17,8 +18,8 @@ class DetailPage extends StatelessWidget {
             height: 450,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(35),
-                    bottomRight: Radius.circular(35)),
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10)),
                 image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage("assets/image_destination1.png"))),
@@ -217,7 +218,9 @@ class DetailPage extends StatelessWidget {
                   ),
                   CustomButton(
                     title: "Book Now",
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ChooseSeat()));
+                    },
                     width: 158,
                     margin: EdgeInsets.only(left: 40),
                   )
